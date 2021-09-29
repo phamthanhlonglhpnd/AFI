@@ -1,0 +1,141 @@
+.header {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background: transparent;
+    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.5) 0 0 5px 10px rgba(0, 0, 0, 0.5);
+    &-PC {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+    &-left {
+        display: flex;
+    }
+    &-right {
+        background-color: peachpuff;
+        padding: 25px 20px;
+    }
+    &-logo {
+        height: 40px;
+    }
+    &-desc {
+        margin-left: 15px;
+    }
+    &-slogan {
+        margin-bottom: 10px;
+    }
+    &-list {
+        display: flex;
+    }
+    &-item {
+        padding: 0 20px;
+        height: 100%;
+        position: relative;
+        &:hover {
+            .header-link:after {
+                width: 100%;
+            }
+        }
+    }
+    &-link {
+        display: inline-block;
+        color: $heading-color;
+        text-transform: uppercase;
+        font-weight: 700;
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: -22px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            transition: width 0.3s linear;
+            background-image: linear-gradient(81deg, #ff6600 0%, #ff9903 75%, #ffcb05 100%);
+        }
+    }
+    &-icon{
+        z-index: 2;
+        display: none;
+    }
+    &-mobile {
+        display: none;
+        z-index: 2;
+        transform: translateX(100%);
+        transition: transform 0.5s linear;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 270px;
+        background-color: pink;
+        &-list {
+            margin-top: 30px;
+            margin-left: 20px;
+            li {
+                padding: 20px 0;
+            }
+        }
+    }
+    &-box {
+        padding: 50px 10px;
+        i {
+            position: absolute;
+
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            margin-bottom: 50px;
+        }
+        img {
+            width: 120px;
+            height: 64px;
+            margin-left: 60px;
+        }
+    }
+}
+
+@include maxW(1239px) {
+    .header {
+        &-right {
+            padding: 25px 0;
+        }
+    }
+}
+
+@include maxW(63.9375rem) {
+    .header {
+        position: unset;
+        &-right {
+            display: none;
+        }
+        &-name, &-slogan {
+            font-size: 12px;
+        }
+        &-mobile {
+            display: block;
+        } 
+        &-icon {
+            display: block;
+        }
+    }
+}
+
+@include maxW(767px) {
+    .header {
+        position: unset;
+        &-right {
+            display: none;
+        }
+        &-name, &-slogan {
+            font-size: 12px;
+        }
+        &-mobile {
+            display: block;
+        }
+        &-icon {
+            display: block;
+        }
+    }
+}

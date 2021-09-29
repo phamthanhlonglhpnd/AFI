@@ -1,0 +1,72 @@
+.footer {
+    // display: none;
+    &-content {
+        background-image: url("https://afi.com.vn/assets/imgs/f-bg.png");
+        background-position: center;
+        background-size: cover;
+        height: 500px;
+        position: relative;
+    }
+    &-list {
+        width: 100%;
+        position: absolute;
+        top: 70%;
+        left: 47%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0 30px;
+    }
+    &-image {
+        width: 250px;
+        height: 150px;
+    }
+    &-link {
+        line-height: 1.3;
+        color: white;
+        padding: 20px 0;
+        transition: transform 0.4s ease-out;
+        &:after {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background-color: #ff9903;
+            transition: width 0.4s ease-out;
+        }
+        &:hover {
+            transform: translateX(10px);
+            color: #ff9903;
+            &:after {
+                width: 40%;
+            }
+        }
+        i {
+            margin-right: 4px;
+        }
+    }
+}
+
+@include maxW(767px) {
+    .footer {
+        &-content {
+            background-color: #060913;
+            height: unset;
+        }
+        &-item {
+            &:first-child {
+                text-align: center;
+            }
+            &:not(:first-child) {
+                padding: 0 25px;
+            }
+        }
+        &-list {
+            position: unset;
+            display: unset;
+        }
+    }
+}

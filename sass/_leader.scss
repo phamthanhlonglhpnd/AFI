@@ -1,0 +1,197 @@
+.leader {
+    overflow-x: hidden;
+    &-top {
+        text-align: center;
+    }
+    &-bottom {
+        position: relative;
+    }
+    &-item-top {
+        width: 236px;
+        height: 236px;
+        background-color: #fff;
+        z-index: 1;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        position: relative;
+        &:after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -20%;
+            width: 236px;
+            height: 236px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 3px solid #ff6600;
+            opacity: 0;
+            transition: all 0.5s ease-out;
+        }
+    }
+    &-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid rgb(224, 206, 206);
+    }
+    &-list {
+        display: flex;
+        overflow: hidden;
+        margin-left: 60px;
+    }
+    &-item-bottom {
+        text-align: center;
+    }
+    &-item {
+        flex-shrink: 0;
+        max-width: 370px; 
+        &:hover {
+            .leader-item-top:after {
+                opacity: 1;
+            }
+            .one {
+                transform: translate(30px, -60px);
+                opacity: 1;
+            }
+            .two {
+                transform: translate(60px, -45px);
+                opacity: 1;
+            }
+            .three {
+                transform: translate(60px, -20px);
+                opacity: 1;
+            }
+            .four {
+                transform: translate(30px, 0px);
+                opacity: 1;
+            }
+        }
+    }
+    &-name {
+        display: block;
+        color: $heading-color;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    &-position {
+        color: $text-color;
+    }
+    &-boxaccount {
+        position: absolute;
+        right: 0;
+        top: 30%;
+        
+    }
+    
+    &-link {
+        box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.05);
+        display: block;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        position: relative;
+        transition: all 0.3s linear;
+        &:hover {
+            background-color: #ff6600;
+            .leader-accounticon {
+                color: white;
+            }
+        }
+    }
+    &-accounticon {
+        color: rgb(57, 57, 231);
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s linear;
+    }
+    .one {
+        transform: translateY(-45px);
+    }
+    .two {
+        transform: translate(18px, -29px);
+    }
+    .three {
+        transform: translate(15px, -12px);
+    }
+    .four {
+        transform: translate(-15px, 0);
+    }
+    .one, .two, .three, .four {
+        opacity: 0;
+        transition: all 0.5s ease-out;
+    }
+    &-prev {
+        top: 50%;
+        transform: translate(-50%, 0);
+        left: 25px;
+        box-shadow: 5px 0 20px 30px rgba(0, 0, 0, 0.03);
+    }
+    &-next {
+        top: 50%;
+        transform: translate(-50%, 0);
+        right: -45px;
+        box-shadow: 5px 0 20px 30px rgba(0, 0, 0, 0.03);
+    }
+}
+
+@include maxW(1339px) {
+    .leader {
+        &-list {
+            margin-left: 0;
+        }
+    }
+}
+
+@include maxW(1023px) {
+    .leader {
+        &-list {
+            margin-left: 0;
+        }
+        &-prev {
+            top: 113%;
+            transform: translate(-50%, -30%);
+            left: 40%;
+        }
+        &-next {
+            top: 113%;
+            transform: translate(-50%, -30%);
+            right: 30%;
+        }
+    }
+}
+
+@include maxW(767px) {
+    .leader {
+        margin-top: -30px;
+        padding-bottom: 20px;
+        &-item {
+            padding-top: 20px;
+            width: 100%;
+            z-index: 0;
+        }
+        &-list {
+            margin-left: 0;
+        }
+        &-item-top {
+            width: 200px;
+            height: 200px;
+            &:after {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        &-prev {
+            top: 111%;
+            left: 120px;
+        }
+        &-next {
+            right: 75px;
+            top: 111%;
+        }
+    }
+}
